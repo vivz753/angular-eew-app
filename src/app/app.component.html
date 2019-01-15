@@ -1,57 +1,26 @@
-<!-- <div class="main-container">
-  <div class="alert alert-app-level">
-      hi
-  </div>
-  <header class="header header-6">
-      angular eew app
-  </header>
-  <nav class="subnav">
-      pg 1
-  </nav>
-  <nav class="subnav">
-      pg 2
-  </nav>
-  <nav class="subnav">
-      pg 3
-  </nav>
-  <div class="content-container">
-      <div class="content-area">
-          jajajajaja
-      </div>
-      <nav class="sidenav">
-          link 1
-      </nav>
-  </div>
-</div> -->
-
-<router-outlet></router-outlet>
-
 <div class="main-container">
-	<header class="header-3">
+	<header class="header-2">
 		<div class="branding">
-			<a class="nav-link">
+			<a class="nav-link nav-text" routerLink="/">
 				<clr-icon shape="home" size="24"></clr-icon>
-				<span class="title">Project Clarity</span>
+				<span class="title">ShakeAlertSJ</span>
 			</a>
 		</div>
 		<div class="header-nav">
-			<a class="active nav-link nav-text">Home</a>
+			<a class="nav-link nav-text" routerLink="/">Home</a>
     </div>
     <div class="header-nav">
-			<a class="active nav-link nav-text">About</a>
+			<a class="nav-link nav-text" routerLink="/about">About</a>
     </div>
     <div class="header-nav">
-			<a class="active nav-link nav-text">Register for Alerts</a>
+			<a class="nav-link nav-text" routerLink="/register">Register</a>
     </div>
 	</header>
 	<div class="content-container">
 		<div class="content-area">
-			<h3>Clarity Starter Instructions:</h3>
-			<ul>
-				<li>Start by clicking Fork in the toolbar above.</li>
-				<li>Implement the problem in the new editor.</li>
-				<li>Save the result, and share the url in a GitHub or StackOverflow issue.</li>
-			</ul>
+      <router-outlet></router-outlet>
 		</div>
-	</div>
+  </div>
 </div>
+
+

@@ -48,6 +48,8 @@ export class RegistrationComponent implements OnInit {
     this.phoneNumber = "";
     this.showErrorHelper = true;
     this.showModal=true;
+
+    //insert api call that uploads phone number to Amazon SNS
   }
 
   closeModal(){

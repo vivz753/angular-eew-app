@@ -19,31 +19,24 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
-  checkString(input: string){
-    // Validation input
-
-    console.log(input);
-
+  checkString (input: string) {
     // Check if the string is empty
     this.stringEmpty = input === "" ;
-    // input !== "" ? this.stringEmpty = false : this.stringEmpty=true;
-    console.log('String empty: ' + this.stringEmpty);
-
-    // Check if the string is valid (10 characters, digits only)
+    // Check if the string is valid (10 characters w/ optional country code, digits only)
     let regex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/
     this.stringInvalid = !regex.test(input);
 
-    if(this.stringEmpty || this.stringInvalid){
+    // Check if string is empty or string is invalid
+    if (this.stringEmpty || this.stringInvalid) {
       this.showErrorHelper = true;
     }
-    else{
+    else {
       this.showErrorHelper = false;
     }
-    console.log('Show error message: ' + this.showErrorHelper )
+
   }
 
-  onRegisterPhoneNumber(input: string) {
-    //insert api call that uploads phone number to Amazon SNS
+  onRegisterPhoneNumber (input: string) {
     this.listOfNumbers.push(input);
     this.phoneNumber = "";
     this.showErrorHelper = true;
@@ -52,7 +45,7 @@ export class RegistrationComponent implements OnInit {
     //insert api call that uploads phone number to Amazon SNS
   }
 
-  closeModal(){
+  closeModal() {
     this.showModal = false;
   }
 }

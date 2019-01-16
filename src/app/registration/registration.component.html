@@ -14,12 +14,12 @@ To subscribe to earthquake alerts in the Bay Area, please type in your phone num
   <button class="btn btn-primary" type="submit" [disabled]="showErrorHelper" (click)="onRegisterPhoneNumber(phoneNumber)">Add</button>
 </form>
 
-<!-- Test print outs -->
+<!-- Test print outs
 <span *ngIf="showErrorHelper"> show error helper</span>
 <br>
 <span *ngIf="stringEmpty"> string empty</span>
 <br>
-<span *ngIf="stringInvalid"> string invalid</span>
+<span *ngIf="stringInvalid"> string invalid</span> -->
 
 
 <!-- Test display of numbers submitted -->
@@ -34,9 +34,9 @@ To subscribe to earthquake alerts in the Bay Area, please type in your phone num
   <div class="modal-dialog" role="dialog" aria-hidden="true">
       <div class="modal-content">
           <div class="modal-header">
-              <button aria-label="Close" class="close" type="button">
+              <!-- <button aria-label="Close" class="btn close" type="button">
                   <clr-icon aria-hidden="true" shape="close"></clr-icon>
-              </button>
+              </button> -->
               <h3 class="modal-title">IMPORTANT!</h3>
           </div>
           <div class="modal-body">
@@ -50,3 +50,6 @@ To subscribe to earthquake alerts in the Bay Area, please type in your phone num
 </div>
 <div class="modal-backdrop" aria-hidden="true"></div>
 </div>
+
+
+<p class="p5">To unsubscribe text "STOP" to 123456</p>

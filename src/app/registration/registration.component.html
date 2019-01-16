@@ -1,7 +1,5 @@
 <h2>Register your phone</h2>
 
-
-
 <!-- Description of registration process -->
 To subscribe to earthquake alerts in the Bay Area, please type in your phone number below and hit submit.
 
@@ -10,10 +8,10 @@ To subscribe to earthquake alerts in the Bay Area, please type in your phone num
   <clr-input-container>
       <label clr-col-2>Phone Number: </label>
       <input clr-col-2 clrInput type="text" [(ngModel)]="phoneNumber" (input)="checkString(phoneNumber)" name="number" required/>
-      <clr-control-helper>Enter without spaces or parentheses</clr-control-helper>
+      <clr-control-helper>Ex: 19168338138</clr-control-helper>
       <clr-control-error>Input cannot be empty</clr-control-error>
   </clr-input-container>
-  <button class="btn btn-primary" type="submit" (click)="onRegisterPhoneNumber(phoneNumber)">Submit</button>
+  <button class="btn btn-primary" type="submit" [disabled]="showErrorHelper" (click)="onRegisterPhoneNumber(phoneNumber)">Add</button>
 </form>
 
 <!-- Test print outs -->
@@ -22,19 +20,6 @@ To subscribe to earthquake alerts in the Bay Area, please type in your phone num
 <span *ngIf="stringEmpty"> string empty</span>
 <br>
 <span *ngIf="stringInvalid"> string invalid</span>
-
-<form class="clr-form clr-form-compact">
-  <div class="clr-form-control clr-row">
-      <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Label</label>
-      <div class="clr-control-container clr-col-12 clr-col-md-10">
-          <div class="clr-input-wrapper">
-              <input type="text" id="example" placeholder="Example Input" class="clr-input">
-              <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-          </div>
-          <span class="clr-subtext">Helper Text</span>
-      </div>
-  </div>
-</form>
 
 
 <!-- Test display of numbers submitted -->
@@ -58,7 +43,7 @@ To subscribe to earthquake alerts in the Bay Area, please type in your phone num
               <p>A text message has been sent to +{{ listOfNumbers[listOfNumbers.length-1] }} for verification. Reply "OK" to verify to finish the registration process.</p>
           </div>
           <div class="modal-footer">
-              <button class="btn btn-primary" type="button" (click)="showModal=!showModal">Got it, thanks!</button>
+              <button class="btn btn-primary" type="button" (click)="closeModal()">Got it, thanks!</button>
           </div>
       </div>
   </div>

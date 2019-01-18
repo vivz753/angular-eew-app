@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AwsService } from '../aws.service';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
+  providers: [AwsService]
 })
 export class RegistrationComponent implements OnInit {
 
@@ -14,7 +16,7 @@ export class RegistrationComponent implements OnInit {
   showModal: boolean = false;
   listOfNumbers: Array<string> = [];
 
-  constructor() { }
+  constructor(private aws: AwsService) { }
 
   ngOnInit() {
   }
@@ -37,10 +39,19 @@ export class RegistrationComponent implements OnInit {
   }
 
   onRegisterPhoneNumber (input: string) {
+    this.aws.registerPhone(this.phoneNumber).subscribe(response => {
+      try {
+        console.log(response);
+      }
+      catch(err) {
+        console.log('aws register phone failed');
+      }
+    });
     this.listOfNumbers.push(input);
     this.phoneNumber = "";
     this.showErrorHelper = true;
     this.showModal=true;
+
 
     //insert api call that uploads phone number to Amazon SNS
   }

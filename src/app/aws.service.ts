@@ -15,6 +15,6 @@ export class AwsService {
   constructor(private http: HttpClient) { }
 
   registerPhone(endpoint: string) {
-    return this.http.get<AWSResponse>(`${environment.api}/subscribe?TopicArn=arn:aws:sns:us-west-2:127802994790:EEWSJSU&Endpoint=${endpoint}&Protocol=sms`)
+    return this.http.post<AWSResponse>(`${environment.api}/subscribe?TopicArn=arn:aws:sns:us-west-2:127802994790:EEWSJSU&Endpoint=${endpoint}&Protocol=sms`, {})
   }
 }
